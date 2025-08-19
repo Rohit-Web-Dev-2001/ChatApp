@@ -14,7 +14,7 @@ app.use(cors({
   credentials: true
 }));
 app.get("/", (req, res) => {
-  res.send({ mgs: "Server is ready to use" });
+  res.send( "Server is running 🔥");
 });
 
 app.use("/auth", useRouter);
