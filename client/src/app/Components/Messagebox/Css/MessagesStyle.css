@@ -1,0 +1,99 @@
+.message-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  /* background-color:white; */
+  border-radius: 0px 0px 0px 10px;
+  overflow: hidden;
+}
+
+.message-box ::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+}
+
+.message-box ::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.message-box ::-webkit-scrollbar-thumb:hover {
+  background: #ffffff00; /* Change color on hover */
+}
+
+.message-display {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between messages */
+}
+/* top rigth bottom left */
+.message {
+  padding: 0px 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.message.received {
+  background-color: #e1f5fe;
+  align-self: flex-start; /* Align to the left */
+}
+
+.message.sent {
+  background-color: #000000;
+  color: white;
+  align-self: flex-end; /* Align to the right */
+}
+
+.message-input {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0px 10px 10px 10px;
+  /* background-color: black; */
+  /* position: relative;
+  bottom: 80px; */
+  backdrop-filter: blur(150px);
+  -webkit-backdrop-filter: blur(150px);
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #c8e6c900;
+  outline: none;
+  color: white;
+  border: 1px solid white;
+}
+
+.message-input button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-family: "Billabong", cursive;
+}
+
+.message-input button:hover {
+  background-color: #ffffff;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.39);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 5px 10px;
+  color: rgb(255, 255, 255);
+}
+
+header img {
+  height: 40px;
+}

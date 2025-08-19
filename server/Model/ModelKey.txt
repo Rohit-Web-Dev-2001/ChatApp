@@ -1,0 +1,8 @@
+Auth keys
+{
+  "firstname":"Rohit",
+  "lastname":"Arya",
+  "username":"rohit123@gmail.com",
+  "email":"rohita@gmail.com ",
+  "password":"123"
+}

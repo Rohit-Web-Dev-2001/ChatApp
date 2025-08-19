@@ -1,0 +1,101 @@
+.main-body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px;
+  /* align-items: center; */
+}
+.main-container {
+  background: rgba(255, 0, 0, 0.144);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 762px;
+  max-height: 99vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.main-title {
+  font-family: "Billabong", cursive;
+  color: white;
+  background: #00000034;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.right-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.right-container a {
+  cursor: pointer;
+}
+.right-container a:hover {
+  cursor: pointer;
+  text-decoration: overline;
+}
+
+.main-title button {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Billabong", cursive;
+}
+
+.main-title button:hover {
+  background-color: #efefef;
+  font-family: "Billabong", cursive;
+}
+
+.notificationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.notificationText {
+  color: white;
+  font-family: "Billabong", cursive;
+  font-weight: bold;
+}
+
+.Container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.Container1 .profilePic {
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.Container1 .profilePic img {
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.Container2 button {
+  padding: 10px 15px;
+  font-family: "Billabong", cursive;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  outline: none;
+  border: none;
+
+}

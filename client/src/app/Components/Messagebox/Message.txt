@@ -1,0 +1,38 @@
+ <header>
+        <img src={selectedUser.profilepic} alt={selectedUser.username} />{" "}
+        {selectedUser.name}
+      </header>
+      <div className="message-box">
+        <div
+          className="message-display"
+          ref={messageDisplayRef} // Attach ref here
+          style={{ overflowY: "auto", maxHeight: "588px" }} // Ensure scrolling is enabled
+        >
+          {ZustandmessagesArray.map((message) => (
+            <div
+              key={message._id}
+              className={`message ${
+                message.senderId === AuthData.userId ? "sent" : "received"
+              } `}
+            >
+              <h1 style={{ fontSize: "13px" }}>{message.text}</h1>
+              <h1 style={{ fontSize: "8px", textAlign: "right" }}>
+                {formatMessageTime(message.createdAt)}
+              </h1>
+            </div>
+          ))}
+        </div>
+        <div className="message-input">
+          <input
+            type="text"
+            placeholder="Type your message..."
+            ref={inputRef}
+            onChange={(e) => {
+              settext({ ...text, text: e.target.value });
+            }}
+          />
+          <button type="submit" onClick={(e) => handlesubmit()}>
+            Send
+          </button>
+        </div>
+      </div>

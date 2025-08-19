@@ -1,0 +1,48 @@
+const excludedId = req.authorizedUser; // loggedIn userId E.g Shivani
+    const excludedFriends = await User.findOne({ _id: excludedId }).select(
+      "friends friendsRequest RequestedFriend"
+    ); //extracting logged in user id array
+
+    const ExtractingFriendID = excludedFriends.friends.map((ele) => ele.id); // Extracting loggedIn( shivani's) User's friends id to exclude them
+    const ExtractingfriendsRequestID = excludedFriends.friendsRequest.map(
+      (ele) => ele.id
+    ); // Extracting loggedIn( shivani's) User's friendsRequest id to exclude them
+
+    const RequestedToBeFriendId = excludedFriends.RequestedFriend.map(
+      (ele) => ele.id
+    ); // Extracting loggedIn( shivani's) User's friendsRequest id to exclude them
+    const mergeIds = [
+      excludedId,
+      ...ExtractingFriendID,
+      ...ExtractingfriendsRequestID,
+      // ...RequestedToBeFriendId,
+    ];
+
+    const results = await User.find({ _id: { $nin: mergeIds } });
+    const results2 = await User.findOne({ _id: excludedId }).select(
+      "RequestedFriend "
+    );
+    const { id } = results2.RequestedFriend;
+    console.log(id);
+    
+    if (results) {
+      const filterData = results.map((ele) => {
+        if (ele._id === results2.RequestedFriend.id) {
+          return {
+            id: ele._id,
+            name: ele.username,
+            profilepic: ele.profilepic,
+          };
+        }
+      });
+
+      const ResponsingArray = [
+        // ...results2.RequestedFriend,
+        ...filterData,
+        ...excludedFriends.friendsRequest,
+      ];
+
+      res.send(ResponsingArray); // Array of objects with specific key-value pairs
+    } else {
+      res.send("Cannot able to connect");
+    }
