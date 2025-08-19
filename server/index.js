@@ -9,7 +9,10 @@ require("dotenv").config();
 
 connectDB();
 app.use(bodyParser.json({ limit: "10mb" }));
-app.use(cors());
+app.use(cors({
+  origin: ["https://chatapp-frontend-tfek.onrender.com/", "http://localhost:3000"], 
+  credentials: true
+}));
 app.get("/", (req, res) => {
   res.send({ mgs: "Server is ready to use" });
 });
