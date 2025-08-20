@@ -35,7 +35,8 @@ export const SocketContextProvider = ({ children }) => {
   const { AuthData } = useContext(AuthContext);
   useEffect(() => {
     if (AuthData) {
-      const socketInstance = io("http://localhost:8000", {
+      // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
+      const socketInstance = io(" https://chatapp-kdac.onrender.com/", {
         query: {
           userId: AuthData.userId,
         },
