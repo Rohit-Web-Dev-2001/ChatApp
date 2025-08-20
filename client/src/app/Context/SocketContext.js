@@ -35,7 +35,7 @@ export const SocketContextProvider = ({ children }) => {
   const { AuthData } = useContext(AuthContext);
   useEffect(() => {
     if (AuthData) {
-      const socketInstance = io(process.env.REACT_APP_SOCKET_URL, {
+      const socketInstance = io("http://localhost:8000", {
         query: {
           userId: AuthData.userId,
         },

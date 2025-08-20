@@ -14,13 +14,11 @@ const useSignin = () => {
   const signin = async (body) => {
     setIsLoading(true);
     try {
-      console.log("SignIN api calls") 
-      const response = await axios.post("https://chatapp-kdac.onrender.com/auth/SignIn", body);
-      console.log(response?.data);
+      const response = await API.post("auth/SignIn", body);
+
       const data = response?.data;
       if (data.error) {
         alert(data.error);
-        router.push("/");
       } else {
         dispatch({
           type: "LOGIN",
