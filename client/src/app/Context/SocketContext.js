@@ -35,11 +35,12 @@ export const SocketContextProvider = ({ children }) => {
   const { AuthData } = useContext(AuthContext);
   useEffect(() => {
     if (AuthData) {
-      console.log("SingIn api call");
-       // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
-      const socketInstance = io("https://chatapp-kdac.onrender.com/", {
+      // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
+      const socketInstance = io(" https://chatapp-kdac.onrender.com/", {
         query: {
-          userId: AuthData.userId,
+           query: { userId: AuthData.userId },
+           transports: ["websocket"], // force websocket, avoids polling issues
+           withCredentials: true,
         },
       });
 
