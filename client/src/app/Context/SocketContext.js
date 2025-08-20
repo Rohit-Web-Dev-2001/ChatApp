@@ -35,7 +35,8 @@ export const SocketContextProvider = ({ children }) => {
   const { AuthData } = useContext(AuthContext);
   useEffect(() => {
     if (AuthData) {
-      // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
+      console.log("SingIn api call");
+       // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
       const socketInstance = io("https://chatapp-kdac.onrender.com/", {
         query: {
           userId: AuthData.userId,
