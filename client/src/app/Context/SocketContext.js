@@ -36,11 +36,11 @@ export const SocketContextProvider = ({ children }) => {
   useEffect(() => {
     if (AuthData) {
       // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
-      const socketInstance = io(" https://chatapp-kdac.onrender.com/", {
+      const socketInstance = io("https://chatapp-kdac.onrender.com/", {
         query: {
-           query: { userId: AuthData.userId },
-           transports: ["websocket"], // force websocket, avoids polling issues
-           withCredentials: true,
+          query: { userId: AuthData.userId },
+          transports: ["websocket"], // force websocket, avoids polling issues
+          withCredentials: true,
         },
       });
 
