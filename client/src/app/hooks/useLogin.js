@@ -15,7 +15,8 @@ const useSignin = () => {
     setIsLoading(true);
     try {
       console.log("SignIN api calls") 
-      const response = await API.post("auth/SignIn", body);
+      const response = await axios.post("https://chatapp-kdac.onrender.com/auth/SignIn", body);
+      console.log(response?.data);
       const data = response?.data;
       if (data.error) {
         alert(data.error);
