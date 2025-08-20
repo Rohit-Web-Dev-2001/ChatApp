@@ -38,7 +38,9 @@ export const SocketContextProvider = ({ children }) => {
       // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
       const socketInstance = io("https://chatapp-kdac.onrender.com/", {
         query: {
-          userId: AuthData.userId,
+           query: { userId: AuthData.userId },
+           transports: ["websocket"], // force websocket, avoids polling issues
+           withCredentials: true,
         },
       });
 
