@@ -8,13 +8,15 @@ const { app, server } = require("./Socket/Socket.js");
 require("dotenv").config();
 
 connectDB();
-app.use(bodyParser.json({ 
-  origin: 'https://chatapp-frontend-tfek.onrender.com/',  
-  methods: 'GET,POST,PUT,DELETE',
-  limit: "10mb" ,
+// Parse JSON bodies (max size 10mb)
+app.use(bodyParser.json({ limit: "10mb" }));
+
+// Enable CORS for frontend
+app.use(cors({
+  origin: ["https://chatapp-frontend-tfek.onrender.com", "http://localhost:3000"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
-app.use(cors());
 app.get("/", (req, res) => {
   res.send( "Server is running 🔥");
 });
