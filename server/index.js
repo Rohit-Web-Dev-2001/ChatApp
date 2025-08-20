@@ -8,11 +8,13 @@ const { app, server } = require("./Socket/Socket.js");
 require("dotenv").config();
 
 connectDB();
-app.use(bodyParser.json({ limit: "10mb" }));
-app.use(cors({
-  origin: ["https://chatapp-frontend-tfek.onrender.com/", "http://localhost:3000"], 
-  credentials: true
+app.use(bodyParser.json({ 
+  origin: 'https://chatapp-frontend-tfek.onrender.com/',  
+  methods: 'GET,POST,PUT,DELETE',
+  limit: "10mb" ,
+  credentials: true,
 }));
+app.use(cors());
 app.get("/", (req, res) => {
   res.send( "Server is running 🔥");
 });
