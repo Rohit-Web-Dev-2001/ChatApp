@@ -4,18 +4,15 @@ import { useRouter } from "next/navigation";
 import { AuthContext } from "@/app/Context/AuthContext";
 import useSignin from "@/app/hooks/useLogin";
 import { io } from "socket.io-client";
-const Header = ({setUserIndentification}) => {
+const Header = ({ setUserIndentification }) => {
   const Router = useRouter();
   const { dispatch } = useContext(AuthContext);
   const { Logout } = useSignin();
   const handlelogout = (e) => {
     e.preventDefault();
-    Logout();
-    setUserIndentification(null)
     Router.push("/Login");
-    setTimeout(() => {
-      window.location.reload();
-    },200);
+    setUserIndentification(null);
+    Logout();
   };
   return (
     <div className="main-title">
