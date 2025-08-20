@@ -1,18 +1,12 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 import { io } from "socket.io-client";
 
 const initialState = {
   socket: null,
-  onlineUser: [],
+  onlineUsers: [],
 };
 
 export const SocketContext = createContext();
@@ -33,18 +27,17 @@ function reducer(state, action) {
 export const SocketContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { AuthData } = useContext(AuthContext);
+
   useEffect(() => {
     if (AuthData) {
-      // https://chatapp-kdac.onrender.com/ ,http://localhost:8000
+      console.log("Sending User Id to Socket", AuthData?.userId);
+
       const socketInstance = io("https://chatapp-kdac.onrender.com/", {
-        query: {
-          query: { userId: AuthData.userId },
-          transports: ["websocket"], // force websocket, avoids polling issues
-          withCredentials: true,
-        },
+        query: { userId: AuthData.userId },
+        transports: ["websocket"], // force websocket, avoids polling issues
+        withCredentials: true,
       });
 
-      // Set the socket instance in state
       dispatch({ type: "SET_SOCKET", payload: socketInstance });
 
       socketInstance.on("connect", () => {
@@ -57,7 +50,6 @@ export const SocketContextProvider = ({ children }) => {
 
       return () => {
         socketInstance.close();
-        // Clear the socket state on cleanup
         dispatch({ type: "CLEAR_SOCKET" });
       };
     } else {
@@ -67,9 +59,10 @@ export const SocketContextProvider = ({ children }) => {
       }
     }
   }, [AuthData]);
+
   return (
     <SocketContext.Provider
-      value={{ socket: state.socket, onlineUsers: state.onlineUsers }}
+      value={{ socket: state.socket, onlineUsers: state.onlineUsers }} 
     >
       {children}
     </SocketContext.Provider>

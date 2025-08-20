@@ -17,7 +17,6 @@ const Sidebar = ({ setselectedUser, setconversation }) => {
     setfriendslist(getUsersFriend);
   }
 
-  
   useEffect(() => {
     getfriendUser();
   }, []);
@@ -44,7 +43,7 @@ const Sidebar = ({ setselectedUser, setconversation }) => {
                 onClick={() => {
                   setuserId(user.id);
                   setselectedUser(user);
-                  getMessages(user)
+                  getMessages(user);
                 }}
               >
                 <div className="recentmsgs">
@@ -66,7 +65,7 @@ const Sidebar = ({ setselectedUser, setconversation }) => {
                         fontSize: "0.7rem",
                       }}
                     >
-                      {onlineUsers.includes(user.id)?'online':'offline'}
+                      {onlineUsers.includes(user.id) ? "online" : "offline"}
                     </span>
                   </span>
                 </div>
