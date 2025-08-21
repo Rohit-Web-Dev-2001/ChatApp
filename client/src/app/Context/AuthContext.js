@@ -15,6 +15,8 @@ export const AuthContext = createContext();
 function reducer(state, action) {
   switch (action.type) {
     case "LOGOUT":
+      console.log("Clearing Local Storage");
+
       localStorage.removeItem("chat-user");
       return {};
     case "LOGIN":

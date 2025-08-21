@@ -7,12 +7,13 @@ import { io } from "socket.io-client";
 const Header = ({ setUserIndentification }) => {
   const Router = useRouter();
   const { dispatch } = useContext(AuthContext);
-  const { Logout } = useSignin();
-  const handlelogout = (e) => {
+  const handlelogout = async (e) => {
     e.preventDefault();
-    Router.push("/Login");
+    dispatch({
+      type: "LOGOUT",
+    });
     setUserIndentification(null);
-    Logout();
+    Router.push("/Login");
   };
   return (
     <div className="main-title">
