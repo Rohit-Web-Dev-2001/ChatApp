@@ -10,8 +10,6 @@ const io = new Server(server, {
   cors: {
     origin: [
       "https://chat-app-lac-tau.vercel.app/",
-      "https://chat-app-git-main-rohit-web-dev-2001s-projects.vercel.app/",
-      "https://chatapp-frontend-tfek.onrender.com",
       "http://localhost:3000",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
