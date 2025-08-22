@@ -13,7 +13,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 
 // Enable CORS for frontend
 app.use(cors({
-  origin: ["https://chat-app-lac-tau.vercel.app/","http://localhost:3000",],
+  origin: ["https://chat-app-lac-tau.vercel.app","http://localhost:3000"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
