@@ -13,7 +13,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 
 // Enable CORS for frontend
 app.use(cors({
-  origin: ["https://chatapp-frontend-tfek.onrender.com", "http://localhost:3000","https://chat-app-lac-tau.vercel.app/"],
+  origin: ["https://chat-app-lac-tau.vercel.app/","http://localhost:3000",],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
