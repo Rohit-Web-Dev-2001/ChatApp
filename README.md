@@ -5,6 +5,11 @@
 
 Follow the steps below to set up and run the project on your local machine.
 
+
+## Dummy credentials
+  Email - bhatia@gmail.com ,ShivaniDevil12@gmai.com  , Password - 123
+
+Follow the steps below to set up and run the project on your local machine.
 ---
  Set Up Environment Variables
 Create a .env file inside the server folder with the following:
